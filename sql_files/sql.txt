@@ -5,3 +5,17 @@ Order of operations in SQL code
 3. Aggregate functions like SUM() are calcualted
 	- Calculated "within" each group defined by groupby 
 4. SELECT is finalized. 
+
+
+### Matching a string 
+SELECT
+	*
+FROM 
+	Table 
+WHERE (column LIKE '% string %'    # 'string' between spaces
+	OR column LIKE 'string %'    # 'string' at the start, followed by a space
+	OR column LIKE '% string'    # string at the end, space at the start 
+	OR column LIKE 'string'    # 'string by itself 
+	AND column not like ;%[^ ]STRING[^ ]%'    # excludes 'string' in the middle of a word
+
+
