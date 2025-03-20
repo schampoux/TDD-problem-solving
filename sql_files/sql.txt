@@ -18,4 +18,14 @@ WHERE (column LIKE '% string %'    # 'string' between spaces
 	OR column LIKE 'string'    # 'string by itself 
 	AND column not like ;%[^ ]STRING[^ ]%'    # excludes 'string' in the middle of a word
 
-
+### manipulating a string
+- For this question we had values in the names column such as "CiNdy", "carL". We wanted to return the names with the first letter upper case, adn the rest lower case. 
+- to do this, we can can change everything to lower
+	LOWER(table.column) 
+- Then we change the leftmost value to upper 
+	UPPER(LOWER(u.column), 1) 
+- Then we combine the leftmost character with the rest of the word, which has already been lowered. To do this, you need to use CONCAT
+	CONCAT(
+		UPPER(LEFT(LOWER(table.column), 1)),
+		RIGHT(LOWER(u.name, LENGTH(u.name)-1)
+NOTE: MySQL lacks a single built-in function that directly capitalizes only the first character of a string while forcing the rest to lowercase. 	
