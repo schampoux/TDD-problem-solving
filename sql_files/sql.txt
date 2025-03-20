@@ -1,0 +1,7 @@
+Order of operations in SQL code 
+1. FROM and JOINs happen first
+2. GROUP BY happens next
+	- collapses all rows for each unique column1, column2, etc. into a single row 
+3. Aggregate functions like SUM() are calcualted
+	- Calculated "within" each group defined by groupby 
+4. SELECT is finalized. 
